@@ -204,3 +204,4 @@ These are potential enhancements, not claims that these features are already imp
 To support mothers with a simple, thoughtful digital companion that helps them stay organized, understand their recorded wellbeing, and communicate more effectively with healthcare professionals.
 
 **Built with care for mothers and their families.** 🌿
+**Built with care for mothers and their families.** 🌿
