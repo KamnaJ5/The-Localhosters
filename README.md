@@ -74,7 +74,12 @@ The platform focuses on usability, accessibility, and supportive, non-diagnostic
 - Questions and concerns prepared by the user.
 - Print-friendly visit preparation.
 
+###  8.Emergency SOS
+- Local hospital call 
+- Support circle get notifications
+- Call the respective doctor
 ---
+
 
 ## 🎯 Target Users
 
