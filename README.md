@@ -33,6 +33,7 @@ MAMA bridges the post-discharge care gap by providing an accessible, continuous,
  * Trend Analysis: Visual summaries of sleep, hydration, and adherence patterns over weekly and monthly intervals.
  * Recovery Milestones: Contextual insights guiding mothers through physical healing during the 42-day postpartum window.
 🏗️ Architecture & Technology Stack
+'''
 ┌────────────────────────────────────────────────────────┐
 │                   MAMA Frontend (PWA)                  │
 │       Vite • React / Modern DOM • Tailwind CSS         │
@@ -49,7 +50,7 @@ MAMA bridges the post-discharge care gap by providing an accessible, continuous,
 │ MongoDB /   │      │ Bhashini    │      │ Google Cloud │
 │ Cloud Store │      │ STT API     │      │ Vision API   │
 └─────────────┘      └─────────────┘      └──────────────┘
-
+'''
 | Domain | Technology / Tool | Purpose |
 |---|---|---|
 | Frontend | HTML5 / JavaScript / React, Tailwind CSS | Responsive, accessible, and lightweight client interface |
