@@ -33,7 +33,12 @@ MAMA bridges the post-discharge care gap by providing an accessible, continuous,
  * Trend Analysis: Visual summaries of sleep, hydration, and adherence patterns over weekly and monthly intervals.
  * Recovery Milestones: Contextual insights guiding mothers through physical healing during the 42-day postpartum window.
 🏗️ Architecture & Technology Stack
-'''
+
+
+
+### 🏗️ Architecture & Technology Stack
+
+```
 ┌────────────────────────────────────────────────────────┐
 │                   MAMA Frontend (PWA)                  │
 │       Vite • React / Modern DOM • Tailwind CSS         │
@@ -46,11 +51,11 @@ MAMA bridges the post-discharge care gap by providing an accessible, continuous,
 └──────┬────────────────────┬────────────────────┬───────┘
        │                    │                    │
 ┌──────▼──────┐      ┌──────▼──────┐      ┌──────▼───────┐
-│ Database    │      │ Indic Speech│      │ Vision OCR   │
-│ MongoDB /   │      │ Bhashini    │      │ Google Cloud │
-│ Cloud Store │      │ STT API     │      │ Vision API   │
+│  Database   │      │ Indic Speech│      │  Vision OCR  │
+│  MongoDB /  │      │  Bhashini   │      │ Google Cloud │
+│ Cloud Store │      │   STT API   │      │  Vision API  │
 └─────────────┘      └─────────────┘      └──────────────┘
-'''
+```
 | Domain | Technology / Tool | Purpose |
 |---|---|---|
 | Frontend | HTML5 / JavaScript / React, Tailwind CSS | Responsive, accessible, and lightweight client interface |
@@ -69,6 +74,7 @@ MAMA's interface is built on a calming, nature-inspired palette engineered to re
  * Dark Slate Text (#20352F) — High-contrast, readable typography.
 📁 Repository Structure
 
+```
 mama/
 ├── client/
 │   ├── assets/
@@ -92,6 +98,7 @@ mama/
 ├── package.json               # Project metadata and dependencies
 └── README.md                  # Project documentation
 
+```
 🚀 Getting Started
 Prerequisites
  * Node.js (v18.x or later recommended)
