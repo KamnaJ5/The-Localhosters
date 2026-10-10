@@ -1,212 +1,127 @@
-# The-Localhosters
-MAMA (Maternal Assistance &amp; Monitoring Application)
+🌿 MAMA — Maternal Assistance & Monitoring Application
+> "Assist, don't diagnose."
+> An end-to-end digital companion providing supportive, continuous care from early pregnancy through delivery and the critical 42-day postpartum period.
+> 
+📌 Problem Statement
+Pregnancy and the postpartum recovery phase involve frequent clinical check-ins, evolving medication regimens, critical vital tracking, and significant shifts in physical and emotional wellbeing.
+In many healthcare settings—especially across underserved communities—monitoring drops off steeply after hospital discharge. Critical records remain scattered across physical slips, language and digital literacy barriers impede timely logging, and early warning signs of complications or postpartum distress often go unnoticed until an emergency arises.
+💡 Our Solution
+MAMA bridges the post-discharge care gap by providing an accessible, continuous, and non-diagnostic tracking platform. Designed with low-bandwidth, voice-first, and multilingual capabilities, MAMA enables mothers and families to log symptoms, digitize paper prescriptions, track medication adherence, and generate structured clinical handoffs for healthcare professionals.
+✨ Key Features & Core Modules
+🏠 1. Home Dashboard
+ * Milestone Tracking: Gestational week counter and postpartum day-by-day recovery milestones.
+ * Daily Wellbeing Logging: Frictionless, one-tap check-ins for hydration, sleep, mood, pain, and symptoms.
+ * Quick Actions: Instant access to upcoming doctor appointments and daily medication checklists.
+🩺 2. My Health & Vitals
+ * Symptom Logging: Structured entries for pain, bleeding, mood shifts, and vitals.
+ * Dual-Layer Records: Clear delineation between user-reported wellness logs and verified clinical observations.
+ * Non-Diagnostic Red-Flag Detection: Rule-based detection that highlights warning signs and suggests seeking timely medical care without issuing automated diagnoses.
+💊 3. Prescription OCR & Medicines
+ * Prescription Digitisation: Powered by Optical Character Recognition (OCR) to parse medicine names, dosages, and frequencies from physical prescription slips.
+ * Human-in-the-Loop Verification: Extracted prescription details require mandatory user confirmation before reminders are scheduled.
+ * Adherence Engine: Real-time tracking of pending, taken, and skipped doses with adherence summaries.
+📅 4. Appointments & Care Continuity
+ * Visit Management: Centralized tracking of antenatal visits and postnatal follow-ups.
+ * Consultation Prep: Space to record personal questions, concerns, and symptom notes prior to clinic appointments.
+📋 5. Doctor Brief (Clinical Handoff)
+ * One-Tap Summary: Compiles recent vitals, symptom severity trends, and medication adherence into a clean, structured summary.
+ * Print & Export Ready: Reduces clinical triage time during doctor consultations by replacing scattered paper slips with a cohesive health thread.
+🤝 6. Support Circle & Gentle SOS Nudge
+ * Consent-Driven Sharing: Opt-in sharing permissions for partners, family members, or designated caregivers.
+ * Gentle Check-In Nudge: If persistent low mood or acute distress is logged over consecutive days, the app triggers a gentle notification to a trusted support person alongside hotlines for professional mental health support.
+📊 7. Insights
+ * Trend Analysis: Visual summaries of sleep, hydration, and adherence patterns over weekly and monthly intervals.
+ * Recovery Milestones: Contextual insights guiding mothers through physical healing during the 42-day postpartum window.
+🏗️ Architecture & Technology Stack
+┌────────────────────────────────────────────────────────┐
+│                   MAMA Frontend (PWA)                  │
+│       Vite • React / Modern DOM • Tailwind CSS         │
+│     IndexedDB / Local Caching (Offline-First Sync)     │
+└───────────────────────────┬────────────────────────────┘
+                            │ REST / JSON
+┌───────────────────────────▼────────────────────────────┐
+│                    Backend Services                    │
+│             Node.js • Express • JWT Auth               │
+└──────┬────────────────────┬────────────────────┬───────┘
+       │                    │                    │
+┌──────▼──────┐      ┌──────▼──────┐      ┌──────▼───────┐
+│ Database    │      │ Indic Speech│      │ Vision OCR   │
+│ MongoDB /   │      │ Bhashini    │      │ Google Cloud │
+│ Cloud Store │      │ STT API     │      │ Vision API   │
+└─────────────┘      └─────────────┘      └──────────────┘
 
-# 🌿 MAMA — Maternal Assistance & Monitoring Application
+| Domain | Technology / Tool | Purpose |
+|---|---|---|
+| Frontend | HTML5 / JavaScript / React, Tailwind CSS | Responsive, accessible, and lightweight client interface |
+| Build & Tooling | Vite | Fast module bundling and local development server |
+| Styling & Assets | Tailwind CSS, Lucide Icons | Accessible, high-contrast, nature-inspired visual design |
+| Backend | Node.js, Express.js | Secure RESTful API endpoints and business logic |
+| Authentication | JWT (JSON Web Tokens) | Secure user access and session management |
+| Storage & Sync | IndexedDB / LocalStorage, MongoDB | Offline-first client logging with cloud database sync |
+| AI / Machine Learning | Google Cloud Vision API, Bhashini STT | Prescription OCR extraction and Indic voice-to-text processing |
+🎨 Design Philosophy & Color Palette
+MAMA's interface is built on a calming, nature-inspired palette engineered to reduce visual stress, maintain WCAG AA accessibility, and present healthcare data clearly:
+ * Forest Green (#164E41) — Primary brand identity, stability, and structure.
+ * Warm Ivory (#FAF9F5) — Soft, non-glare background surface.
+ * Mint (#B8E9DC) — Interactive highlights, badges, and progress indicators.
+ * Soft Sage (#E7F2EB) — Card backgrounds, secondary containers, and borders.
+ * Dark Slate Text (#20352F) — High-contrast, readable typography.
+📁 Repository Structure
+mama/
+├── client/
+│   ├── assets/
+│   │   ├── api.js             # API integration, fetch wrappers, and endpoints
+│   │   ├── app.js             # Client-side router and view event bindings
+│   │   ├── contact.js         # Support Circle and emergency contact handling
+│   │   ├── nav.js             # Navigation drawers and bottom-bar responsive menus
+│   │   ├── site.js            # Global theme utilities and shared helper functions
+│   │   ├── logo.png           # Visual branding assets
+│   │   └── logo-256.png
+│   ├── index.html             # Landing page and onboarding introduction
+│   ├── home.html              # Main dashboard (daily tracking & quick actions)
+│   ├── my-health.html         # Vitals, symptom logging, and historical records
+│   ├── medicines.html         # Medicine schedule, prescription OCR, & reminder logs
+│   ├── appointments.html      # Visit planner and care calendar
+│   ├── insights.html          # Health trends, sleep/hydration, and adherence analytics
+│   ├── doctor-brief.html      # Printable clinical summary for doctor visits
+│   ├── contact.html           # Support network, hotlines, and consent management
+│   ├── login.html             # User authentication and registration
+│   └── 404.html               # Fallback route
+├── package.json               # Project metadata and dependencies
+└── README.md                  # Project documentation
 
-**A supportive digital companion for pregnancy and the first 42 days postpartum.**
-
-MAMA is a maternal wellness platform designed to help expecting and new mothers track their wellbeing, organize medication records, manage appointments, understand wellness trends, and prepare for conversations with healthcare professionals.
-
-Our goal is to make maternal care more accessible, organized, and supportive through a simple, user-friendly digital experience.
-
----
-
-## 📌 Problem Statement
-
-Pregnancy and the postpartum period involve frequent health check-ins, medication schedules, appointments, and important changes in maternal wellbeing. Keeping these details organized can be challenging, especially when information is scattered across different sources.
-
-MAMA aims to bring essential maternal wellness tracking and care coordination features together in one platform.
-
-## 💡 Our Solution
-
-MAMA provides a centralized interface where mothers can record daily wellbeing information, maintain health logs, track routines, organize appointments, and prepare structured summaries for clinical visits.
-
-The platform focuses on usability, accessibility, and supportive, non-diagnostic monitoring.
-
-## ✨ Key Features
-
-### 🏠 1. Home Dashboard
-- Personalized pregnancy or postpartum overview.
-- Gestational week or postpartum day tracking.
-- Pregnancy milestones and postpartum progress.
-- Daily wellbeing check-ins.
-- Sleep, hydration, and medication tracking.
-- Upcoming appointments and quick actions.
-
-### 🩺 2. My Health
-- User-reported symptom logging.
-- Personal health information and measurements.
-- Historical wellbeing records.
-- Educational resources.
-- Clear distinction between user-reported and clinician-verified information.
-
-### 💊 3. Medicines
-- Medication schedule overview.
-- Taken, skipped, and pending dose tracking.
-- Medication history and adherence summaries.
-- Prescription information management.
-
-### 📅 4. Appointments
-- Upcoming and past appointment management.
-- Provider and appointment details.
-- Appointment preparation notes.
-- Visit history and reminders.
-
-### 📊 5. Insights
-- Weekly wellness summaries.
-- Sleep and hydration trends.
-- Medication logging statistics.
-- Date-range filtering and historical comparisons.
-- Data-driven summaries of recorded information.
-
-### 🤝 6. Support
-- Trusted contact management.
-- Consent-controlled information sharing.
-- Maternal wellness resources.
-- Frequently asked questions.
-- Configurable emergency-help information.
-
-### 📋 7. Doctor Brief
-- Structured summary for clinical visits.
-- Recent user-reported symptoms.
-- Medication log summaries.
-- Relevant appointment information.
-- Questions and concerns prepared by the user.
-- Print-friendly visit preparation.
-
-### 🚨 8.Emergency SOS
-- Local hospital call 
-- Support circle get notifications
-- Call the respective doctor
----
-
-
-## 🎯 Target Users
-
-- Expecting mothers.
-- Mothers during early postpartum recovery.
-- Families supporting maternal wellbeing.
-- Healthcare professionals reviewing information shared by patients.
-
-## 🛠️ Technology Stack
-
-The intended application stack includes:
-
-| Technology | Purpose |
-|---|---|
-| React | User interface development |
-| TypeScript | Type-safe application code |
-| Tailwind CSS | Responsive styling |
-| Lucide React | Icons |
-| Recharts | Wellness data visualization |
-| Vite | Development server and build tooling |
-| React Router | Navigation between application screens |
-
-*The final stack should reflect the technologies actually implemented in the repository.*
-
-## 🎨 Design Philosophy
-
-MAMA uses a calm, accessible visual identity inspired by nature and maternal wellness.
-
-**Primary colors**
-- Forest Green — `#164E41`
-- Warm Ivory — `#FAF9F5`
-- Mint — `#B8E9DC`
-- Soft Sage — `#E7F2EB`
-- Dark Text — `#20352F`
-
-The interface emphasizes readable typography, clear navigation, responsive layouts, and a consistent design system.
-
-## 🏗️ Application Structure
-
-The platform is organized around seven primary destinations:
-
-1. Home
-2. My Health
-3. Medicines
-4. Appointments
-5. Insights
-6. Support
-7. Doctor Brief
-
-The application is intended to support desktop, tablet, and mobile layouts, with accessible navigation and vertically scrollable content.
-
-## 🚀 Getting Started
-
-Follow these instructions after the application code has been added to this repository.
-
-### Prerequisites
-
-- Node.js (LTS version recommended)
-- npm
-- Git
-
-### Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/KamnaJ5/The-Localhosters.git
-```
-
-Navigate into the project folder:
-
-```bash
+🚀 Getting Started
+Prerequisites
+ * Node.js (v18.x or later recommended)
+ * npm (v9.x or later) or yarn
+ * Git
+Installation & Setup
+ * Clone the repository:
+   git clone https://github.com/KamnaJ5/The-Localhosters.git
 cd The-Localhosters
-```
 
-Install dependencies:
+ * Navigate to the client application:
+   cd mama/client
 
-```bash
-npm install
-```
+ * Install dependencies:
+   npm install
 
-Start the development server:
+ * Launch the development server:
+   npm run dev
 
-```bash
-npm run dev
-```
+ * Open in browser:
+   Open the local URL output by Vite in your terminal (typically http://localhost:5173).
+ * Build for production:
+   npm run build
 
-Open the local URL displayed in your terminal, usually:
-
-```text
-http://localhost:5173
-```
-
-**Note:** These commands assume the repository contains a configured Node.js application with a `package.json` file and the corresponding scripts. If the repository currently contains only this README, add the application source code and project configuration before running these commands.
-
-## 🔒 Healthcare Disclaimer
-
-MAMA is intended for maternal wellness tracking, information organization, and care coordination. It is not a diagnostic tool and does not replace professional medical advice, diagnosis, or treatment.
-
-The platform must not be used as the sole basis for medical decisions or emergency care.
-
-## 🌱 Future Enhancements
-
-Potential future improvements include:
-
-- Multilingual support for improved accessibility.
-- Voice-assisted logging in supported languages.
-- Prescription text extraction using OCR.
-- Personalized reminders and configurable notifications.
-- Secure sharing of maternal wellness summaries.
-- Backend integration and authenticated user profiles.
-- Privacy-conscious data storage and consent management.
-- Integration with verified healthcare information sources.
-
-These are potential enhancements, not claims that these features are already implemented.
-
-## 👥 Team
-
-**Team Name:** The Localhosters
-
-**Project:** MAMA — Maternal Assistance & Monitoring Application
-
-**Repository:** [The-Localhosters](https://github.com/KamnaJ5/The-Localhosters)
-
-## 💚 Our Vision
-
-To support mothers with a simple, thoughtful digital companion that helps them stay organized, understand their recorded wellbeing, and communicate more effectively with healthcare professionals.
-
-**Built with care for mothers and their families.** 🌿
-**Built with care for mothers and their families.** 🌿
+🔒 Healthcare & Clinical Disclaimer
+> Important: MAMA is designed strictly as a supportive maternal wellness, habit tracking, and care coordination platform. It is not a diagnostic medical device and does not provide clinical diagnoses, medical prescriptions, or emergency intervention. It is not a substitute for professional clinical advice, examination, or hospital care. If you experience severe symptoms (such as heavy bleeding, severe abdominal pain, chest pain, or visual disturbances), seek emergency medical attention immediately.
+> 
+👥 The Localhosters
+Built with care by The Localhosters:
+ * Kamna Jolhe
+ * Kunal Devdas
+ * Manas Gupta
+ * Sanskriti Patkar
+💚 Our Vision
+To support mothers and families through an empathetic, accessible digital companion that simplifies daily tracking, bridges communication with doctors, and ensures no mother navigates the postpartum period unsupported. 🌿
