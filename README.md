@@ -67,6 +67,7 @@ MAMA's interface is built on a calming, nature-inspired palette engineered to re
  * Soft Sage (#E7F2EB) — Card backgrounds, secondary containers, and borders.
  * Dark Slate Text (#20352F) — High-contrast, readable typography.
 📁 Repository Structure
+
 mama/
 ├── client/
 │   ├── assets/
